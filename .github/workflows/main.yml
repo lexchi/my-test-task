@@ -1,0 +1,28 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+env:
+    EB_PACKAGE_S3_BUCKET_NAME : "alex-app-packages"
+    EB_APPLICATION_NAME       : "myapplication"
+    EB_ENVIRONMENT_NAME       : "myapplication-env"
+    DEPLOY_PACKAGE_NAME       : "myapp_${{ github.sha }}.zip"
+    AWS_REGION_NAME           : "us-east-1"
+
+
+on:
+  push:
+    branches:
+      -master
+
+jobs:
+ my-ci-part:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Git clone our repo
+        uses: actions/checkout@v1
+     
+      - name: Create ZIP deployment package 
+         run:zip -r${{ env.DEPLOY_PACKGAGE_NAME }} ./ -x *.git*
+ 
+ 

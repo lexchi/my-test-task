@@ -1,8 +1,8 @@
 name: CI-CD-Pilpeline-to-AWS-EB
 env:
     EB_PACKAGE_S3_BUCKET_NAME : "alex-app-packages"
-    EB_APPLICATION_NAME       : "myapp"
-    EB_ENVIRONMENT_NAME       : "Myapp-env"
+    EB_APPLICATION_NAME       : "myappl"
+    EB_ENVIRONMENT_NAME       : "Myapp-envi"
     DEPLOY_PACKAGE_NAME       : "myapp_${{ github.sha }}.zip"
     AWS_REGION_NAME           : "us-east-1"
 

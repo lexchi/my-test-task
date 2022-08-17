@@ -6,14 +6,16 @@ env:
     DEPLOY_PACKAGE_NAME       : "myapp_${{ github.sha }}.zip"
     AWS_REGION_NAME           : "us-east-1"
 
-on           :
-  push       :
-    branches :
-             - master
+on:
+  push:
+    branches:
+    - main
+    - release/*
 
 jobs:
- my-ci-part:
-    runs-on: ubuntu-latest
+  my_job:
+    name: deploy to staging
+    runs-on: ubuntu-18.04
     
     steps:
       - name: Git clone our repo

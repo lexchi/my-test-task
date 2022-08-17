@@ -6,11 +6,10 @@ env:
     DEPLOY_PACKAGE_NAME       : "myapp_${{ github.sha }}.zip"
     AWS_REGION_NAME           : "us-east-1"
 
-
-on:
-  push:
+on          :
+  push      :
     branches:
-      - master
+             - master
 
 jobs:
  my-ci-part:

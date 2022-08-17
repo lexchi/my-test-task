@@ -14,7 +14,7 @@ on:
 
 jobs:
   my_ci_job:
-    name: deploy to staging
+    name: my_ci_job
     runs-on: ubuntu-18.04
     
     steps:
@@ -51,7 +51,7 @@ jobs:
            aws-region           :  ${{ env.AWS_REGION_NAME }}
        
         - name: Create new EB application
-          run :
+          run : |
            aws elasticbeansearch create-application-version \
            --application-name ${{ env. EB_APPLICATION_NAME }} \
            --source-bundle S3Bucket="${{ env.EB_PACKAGE_S3_BUCKET_NAME }}",S3Key=${{ env.DEPLOY_PACKAGE_NAME }}" \
